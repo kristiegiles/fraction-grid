@@ -1,0 +1,107 @@
+$breakpoint-sm: 400px;
+$breakpoint-md: 760px;
+$breakpoint-lg: 1020px;
+$breakpoint-xl: 1260px;
+$breakpointsList: "sm", "md", "lg", "xl";
+$columnsList: 2, 3, 4, 5, 6, 8, 10, 12;
+$vr-border-style: 1px solid #ccc;
+$gutter-size: 15px;
+
+//todo extends, 1/100%, media all
+
+//grid containers (rows)
+.grid{
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: (-$gutter-size);
+    margin-right: (-$gutter-size);
+
+    //grid cells (columns)
+    &__item{
+        flex: none; //we have to use this instead of "flex:1" because of an IE10/IE11 box-sizing discrepancy :(
+        width: 100%; 
+        padding-left: $gutter-size;
+        padding-right: $gutter-size;    
+    }
+}
+
+@function encodeNumber($number){
+    $numberString: inspect($number); //inspect converts it to a string
+    @if str-length($numberString) == 1{
+        @return \3#{$number}#{unquote(" ")}; //we need to add a space at the end 
+    }
+    @else {
+        $firstDigit: unquote(str-slice($numberString, 1, 1));
+        $otherDigits: unquote(str-slice($numberString, 2));
+        @return \3#{$firstDigit} #{$otherDigits};
+    }
+}
+
+@function getMediaQuery($size){
+    @if $size == sm {
+        @return unquote('only screen and (min-width: '+$breakpoint-sm+')');
+    } @else if $size == md {
+        @return unquote('only screen and (min-width: '+$breakpoint-md+')');
+    } @else if $size == lg {
+        @return unquote('only screen and (min-width: '+$breakpoint-lg+')');
+    } @else if $size == xl {
+        @return unquote('only screen and (min-width: '+$breakpoint-xl+')');
+    } 
+}
+
+@mixin build-grid($columnsList, $breakpointList) {
+    @each $totalColumns in $columnsList{
+        @for $column from 1 through $totalColumns {
+            .#{encodeNumber($column)}\/#{$totalColumns} {
+                width: percentage($column/$totalColumns);
+            }
+            .offset-#{$column}\/#{$totalColumns} { 
+                margin-left: percentage($column/$totalColumns);
+            }
+        }
+    }
+    .vr-left {
+        border-left: $vr-border-style;
+    }
+    .vr-right {
+        border-right: $vr-border-style;
+    }
+    .spacing-bottom { 
+        margin-bottom: ($gutter-size * 2); 
+    }
+    @each $breakpoint in $breakpointList{
+        @media #{getMediaQuery($breakpoint)} {
+            @each $totalColumns in $columnsList{
+                @for $column from 1 through $totalColumns {
+                    .#{encodeNumber($column)}\/#{$totalColumns}\@#{$breakpoint} {
+                        width: percentage($column/$totalColumns);
+                    }
+                    .offset-#{$column}\/#{$totalColumns}\@#{$breakpoint} {
+                        margin-left: percentage($column/$totalColumns);
+                    }
+                }
+            }
+            .vr-left\@#{$breakpoint} {
+                border-left: $vr-border-style;
+            }
+            .vr-right\@#{$breakpoint} {
+                border-right: $vr-border-style;
+            }
+            .spacing-bottom\@#{$breakpoint}{ 
+                margin-bottom: ($gutter-size * 2); 
+            }
+        }
+    }
+}
+
+@include build-grid($columnsList, $breakpointsList);
+
+
+
+
+
+
+
+
