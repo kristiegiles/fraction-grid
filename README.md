@@ -67,7 +67,7 @@ To add a vertical rule, use the `vr-right` or `vr-left` classes on a grid item. 
 ```
 
 ###Spacing Utilities###
-You may often want bottom margins that match the gutter width of your grid items. You can add this with the `spacing-bottom` / `spacing-bottom@{breakpoint}` utilities. 
+You may often want bottom margins that match the gutter width of your grid items. You can add these with the `spacing-bottom` / `spacing-bottom@{breakpoint}` utilities. 
 ```
 <div class="grid">
     <div class="grid__item 1/3@md 1/3@xl spacing-bottom"></div>
