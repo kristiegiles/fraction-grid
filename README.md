@@ -1,4 +1,6 @@
 # fraction-grid 
+Grid systems that use class names like `col-md-3` don't give you the ability to change the number of columns in your grid without refactoring your whole codebase. 
+
 This is a Sass partial you can customize to generate your own easy-to-use and infinitely scalable grid system. It uses [BEM syntax](https://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/)
  and enforces a mobile-first approach. 
  
@@ -7,7 +9,7 @@ Update the variables at the top of the _grid.scss file to configure your grid sy
 
 `$columnsList`
 A list of the column sizes you'd like. If you just want to start with a 12-column grid, you'd use
-`$columnsList: '12'`. To add a 5-column option, you'd change it to `$columnsList: '12, 5`.
+`$columnsList: '12'`. To add a 5-column option, you'd change it to `$columnsList: '12, 5'`.
 
 To build the CSS using this repo, `cd` into the fraction-grid directory and run `npm install` and then `grunt`.
 
