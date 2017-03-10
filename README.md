@@ -21,14 +21,14 @@ Space between grid items.
 Namespaces for your breakpoints.
 
 ###Breakpoint Sizes###
+You can change the pixel values on these. If you choose to add or remove breakpoints, you must update the `$breakpointsList` to match. 
 ```
 $breakpoint-sm
 $breakpoint-md
 $breakpoint-lg
 $breakpoint-xl
 ```
-You can change the pixel values on these. If you choose to add or remove breakpoints, you must update the `$breakpointsList` to match. 
----
+
 To build the CSS using this repo, `cd` into the fraction-grid directory and run `npm install` and then `grunt`.
 
 ##Using the Grid##
