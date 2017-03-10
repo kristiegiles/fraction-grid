@@ -17,5 +17,5 @@ The `grid` class should be used for groups of grid items. It's similar to a row 
 The `grid__item` class should be used for individual grid items (a.k.a. columns). 
 
 ###Grid Item Sizing###
-Grid items are 100% width by default. Sizing should be done with the `{columns}/{totalColumns}@{breakpoint}` classes – for example, `1/2@md 1/3@lg 1/4@xl` or, for a 12-column-only grid `6/12@md 4/12@lg 3/12@xl`.  
+Grid items are 100% width by default. Sizing should be done with the `{columns}/{totalColumns}@{breakpoint}` classes – for example, `1/2@md 1/3@lg 1/4@xl`. For a 12-column-only grid, you'd use `6/12@md 4/12@lg 3/12@xl`.  
 
