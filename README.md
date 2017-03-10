@@ -74,6 +74,8 @@ You may often want bottom margins that match the gutter width of your grid items
     <div class="grid__item 1/2@md 1/3@xl spacing-bottom"><div>
 </div>
 ```
+###Offset Utilities###
+The `offset-{columns}/{totalColumns}@{breakpoint}` can be used to give a grid item a left margin of the specified size. 
 
 ---
 Rated for IE10+
