@@ -7,8 +7,8 @@ This is a Sass partial you can customize to generate your own easy-to-use and in
 ##Configuring the Grid##
 Update the variables at the top of the _grid.scss file to configure your grid system.
 
-**`$columnsList`** A list of the column sizes you'd like. If you just want to start with a 12-column grid, you'd use
-`$columnsList: '12'`. To add a 5-column option, you'd change it to `$columnsList: '12, 5'`.
+**`$columnsList`** A list of the column sizes you'd like. If you just want to start with a 12-column grid, you'd use a value of
+`'12'`. To add a 5-column option, you'd change it to `$columnsList: '12, 5'`.
 
 **`$vr-border-style`** Style to use for vertical rules.
 
